@@ -1,0 +1,44 @@
+import tkinter as tk
+from tkinter import ttk
+
+win = tk.Tk()
+win.title("my")
+def clickMe(): # 2
+    action.configure(text='Hello ' + name.get()+ ' ' +numberChosen.get())
+    numberChosen.configure(state='disable')
+    nameEntered.configure(state='disable')
+action = ttk.Button(win, text="Click Me!",command=clickMe)
+# Modified Button Click Function # 1
+
+# Position Button in second row, second column (zero-based)
+action.grid(column=2, row=1)
+ttk.Label(win, text="Choose a number:").grid(column=1, row=0) # 1
+number = tk.StringVar() # 2
+numberChosen = ttk.Combobox(win, width=12, textvariable=number,value=(1, 2, 4, 42, 100)) #3#可以直接作为元组传入
+#numberChosen['values'] = (1, 2, 4, 42, 100) # 4   #可以直接作为元组传入
+numberChosen.configure(state='readonly') #限制用户选择，禁止选项内输入 对象生成时可用
+numberChosen.grid(column=1, row=1) # 5
+numberChosen.current(0) # 6
+
+# Changing our Label # 3
+ttk.Label(win, text="Enter a name:").grid(column=0, row=0) # 4
+# Adding a Textbox Entry widget # 5
+name = tk.StringVar() # 6
+nameEntered = ttk.Entry(win, width=12,textvariable=name) # 7
+nameEntered.grid(column=0, row=1) # 8
+nameEntered.focus()   #将鼠标光标定位在此中# Place cursor into name Entry
+
+# Creating three checkbuttons # 1
+chVarDis = tk.IntVar() # 2
+check1 = tk.Checkbutton(win, text="Disabled", variable=chVarDis, state='disabled') # 3
+check1.select() # 4
+check1.grid(column=0, row=4, sticky=tk.W) # 5 #west east tk.W左对齐，tk.E右对齐
+chVarUn = tk.IntVar() # 6
+check2 = tk.Checkbutton(win, text="UnChecked", variable=chVarUn)
+check2.deselect() # 8
+check2.grid(column=1, row=4, sticky=tk.W) # 9 
+chVarEn = tk.IntVar() # 10
+check3 = tk.Checkbutton(win, text="Enabled", variable=chVarEn)
+check3.select() # 12
+check3.grid(column=2, row=4, sticky=tk.W) # 13
+win.mainloop()
