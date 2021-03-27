@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-
+#https://www.bilibili.com/video/BV1RN41197mL
 win = tk.Tk()
 win.title("my")
 def clickMe(): # 2
