@@ -1,5 +1,31 @@
 resberry Pi 5 drived linear motion module as extruder
 
+
+## environment setup
+```
+conda activate gzero_env
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+```
+
+
+## commands
+默认状态限位未被触发时，为高电平，输出为3.3v信号；当限位触发时，信号线输出电压为低电压(小于1.5v)
+监控上下限开关的状态，打印GPIO状态
+```
+python print_gpio_in.py
+```
+电机运动测试
+(gzero_env) xl@raspberrypi:~/Desktop/pi_extruder$
+
+```
+python gpiozero_control_unit_test.py
+```
+旋转圈数:
+motor.move_revolutions(6, delay=0.0002)
+旋转角度:
+motor.move_degrees(90, delay=0.001)
+
+
 # tkinter-学习笔记
 
 #### 介绍
@@ -39,4 +65,3 @@ tkinter学习笔记
 5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
 6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
 # pi_extruder
-
