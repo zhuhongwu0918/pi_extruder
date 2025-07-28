@@ -7,7 +7,7 @@ from tkinter import messagebox as mBox
 win = tk.Tk()
 win.title("my")
 #win.iconbitmap('E:\\python\\python\\tkinter351\\chapter3\\favicon.ico') #http://www.ico51.cn/
-win.iconbitmap(r'E:\python\python\tkinter351\chapter3\favicon.ico')
+win.iconbitmap(r'.\favicon.ico')
 tabControl = ttk.Notebook(win) # Create Tab Control---------------
 tab1 = ttk.Frame(tabControl) # Create a tab 
 tabControl.add(tab1, text='Tab 1') # Add the tab--------------
