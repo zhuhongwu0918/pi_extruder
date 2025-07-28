@@ -9,6 +9,7 @@ from create_tool_tip import createToolTip
 from tkinter import scrolledtext # 2
 from tkinter import Menu
 from tkinter import messagebox as mBox
+from tkinter import PhotoImage
 class MainApplication(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -19,7 +20,8 @@ class MainApplication(tk.Tk):
         # 创建停止事件和状态队列
         self.stop_event = Event()
         self.status_queue = queue.Queue()
-        self.iconbitmap(r'.\favicon.ico')
+        icon_img = PhotoImage(file=r'./favicon.png')
+        self.iconphoto(True,icon_img)
         # 设置UI
         # self.setup_ui()
         self.createWidget()
